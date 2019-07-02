@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClinicManager.Database.Models
 {
@@ -7,6 +8,7 @@ namespace ClinicManager.Database.Models
         /// <summary>
         /// Уникальный идентификатор
         /// </summary>
+        [Key]
         public Guid ClinicId { get; set; }
         
         /// <summary>
