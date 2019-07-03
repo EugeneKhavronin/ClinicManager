@@ -3,13 +3,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClinicManager.Database.Models
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Clinic
     {
         /// <summary>
         /// Уникальный идентификатор
         /// </summary>
         [Key]
-        public Guid ClinicId { get; set; }
+        public Guid ClinicGuid { get; set; }
         
         /// <summary>
         /// Название клиники
@@ -44,6 +47,6 @@ namespace ClinicManager.Database.Models
         /// <summary>
         /// Уникальный идентификатор изображения
         /// </summary>
-        public Guid PictureId { get; set; }
+       public Guid PictureId { get; set; }
     }
 }
