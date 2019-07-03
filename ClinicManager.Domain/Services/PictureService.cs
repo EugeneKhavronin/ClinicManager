@@ -28,7 +28,7 @@ namespace ClinicManager.Domain.Services
         {
             var picture = new Picture()
             {
-                PictureId = pic.PicGuid,
+                PictureGuid = pic.PicGuid,
                 Title = pic.Title,
                 //PictureType = pic.PictureType
             };
@@ -50,7 +50,7 @@ namespace ClinicManager.Domain.Services
                 newPicture.ClinicPicture = memoryStream.ToArray();
             }
             newPicture.Title = editPictureModel.Title;
-            newPicture.PictureId = picGuid;
+            newPicture.PictureGuid = picGuid;
             _context.Pictures.Update(newPicture);
             _context.SaveChanges();
         }

@@ -17,10 +17,7 @@ namespace ClinicManager.API.Controllers
 
         private readonly IClinicService _clinicService;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="clinicService"></param>
+        /// <summary/>
         public ClinicController(IClinicService clinicService)
         {
             _clinicService = clinicService;

@@ -10,7 +10,7 @@ namespace ClinicManager.Database.Models
         /// Уникальный идентификатор фотографии
         /// </summary>
         [Key]
-        public Guid PictureId { get; set; }
+        public Guid PictureGuid { get; set; }
         /// <summary>
         /// Название фотографии
         /// </summary>

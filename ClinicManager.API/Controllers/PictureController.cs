@@ -62,7 +62,7 @@ namespace ClinicManager.API.Controllers
         {
             return await _pictureService.GetPictures();
         }
-        [Route("api/getpicture")]
+        [Route("{picGuid}")]
         [HttpGet]
         public async Task<Picture> GetPicture(Guid picGuid)
         {

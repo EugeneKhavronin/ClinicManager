@@ -48,6 +48,6 @@ namespace ClinicManager.Database.Models
         /// <summary>
         /// Уникальный идентификатор изображения
         /// </summary>
-       public Guid PictureId { get; set; }
+       public Guid PictureGuid { get; set; }
     }
 }
