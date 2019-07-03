@@ -9,7 +9,7 @@ namespace ClinicManager.Domain
         public static IServiceCollection AddDomain(this IServiceCollection services)
         {
             services.AddScoped<IPictureService, PictureService>();
-
+            services.AddScoped<IClinicService, ClinicService>();
             return services;
         }
     }
