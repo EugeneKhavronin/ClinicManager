@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.IO;
 using System.Reflection;
+using ClinicManager.Domain;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace ClinicManager.API
@@ -43,6 +44,7 @@ namespace ClinicManager.API
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
+            services.AddDomain();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

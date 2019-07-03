@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ClinicManager.Database.Models
@@ -44,6 +45,8 @@ namespace ClinicManager.Database.Models
         /// <summary>
         /// Уникальный идентификатор изображения
         /// </summary>
-        public Guid PictureId { get; set; }
+        //public Guid PictureId { get; set; }
+        
+       // public List<Picture> Pictures { get; set; }
     }
 }
