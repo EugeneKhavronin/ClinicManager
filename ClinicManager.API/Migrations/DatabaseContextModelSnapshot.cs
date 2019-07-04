@@ -24,7 +24,7 @@ namespace ClinicManager.API.Migrations
                     b.Property<Guid>("ClinicGuid")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Adress");
+                    b.Property<string>("Address");
 
                     b.Property<string>("Email");
 
@@ -48,13 +48,26 @@ namespace ClinicManager.API.Migrations
                     b.Property<Guid>("PictureGuid")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<Guid>("ClinicGuid");
+
+                    b.Property<Guid?>("ClinicPicClinicGuid");
+
                     b.Property<byte[]>("ClinicPicture");
 
                     b.Property<string>("Title");
 
                     b.HasKey("PictureGuid");
 
+                    b.HasIndex("ClinicPicClinicGuid");
+
                     b.ToTable("Pictures");
+                });
+
+            modelBuilder.Entity("ClinicManager.Database.Models.Picture", b =>
+                {
+                    b.HasOne("ClinicManager.Database.Models.Clinic", "ClinicPic")
+                        .WithMany()
+                        .HasForeignKey("ClinicPicClinicGuid");
                 });
 #pragma warning restore 612, 618
         }

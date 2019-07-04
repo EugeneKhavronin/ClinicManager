@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using ClinicManager.Database.Models;
 using ClinicManager.Domain.Interfaces;
+using ClinicManager.Domain.Models.Clinic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicManager.API.Controllers
@@ -36,39 +37,41 @@ namespace ClinicManager.API.Controllers
         /// <summary>
         /// Информация об интересующей клинике
         /// </summary>
-        /// <param name="guid">Уникальный идентификатор</param>
+        /// <param name="guid">Уникальный идентификатор клиники</param>
         /// <returns></returns>
         [HttpGet("{guid}")]
         public async Task<Clinic> GetClinic(Guid guid)
         {
             return await _clinicService.GetClinic(guid);
         }
-        
+
         /// <summary>
         /// Добавление новой клиники
         /// </summary>
-        /// <param name="clinic">Модель клиники</param>
+        /// <param name="clinicModel">Модель клиники</param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<Guid> CreateClinic(Clinic clinic)
+        public async Task<Guid> CreateClinic(ClinicModel clinicModel)
         {
-            return await _clinicService.CreateClinic(clinic);
+            return await _clinicService.CreateClinic(clinicModel);
         }
+
         /// <summary>
         /// Редактирование информации о клинике 
         /// </summary>
-        /// <param name="clinic">Модель клиники</param>
+        /// <param name="guid">Уникальный идентификатор клиники</param>
+        /// <param name="clinicModel">Модель клиники</param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<Guid> UpdataClinic(Clinic clinic)
+        public async Task<Guid>  UpdateClinic(Guid guid, ClinicModel clinicModel)
         {
-            return await _clinicService.UpdateClinic(clinic);
+            return await _clinicService.UpdateClinic(guid, clinicModel);
         }
 
         /// <summary>
         /// Удаление клиники
         /// </summary>
-        /// <param name="guid">Уникальный идентификатор</param>
+        /// <param name="guid">Уникальный идентификатор клиники</param>
         /// <returns></returns>
         [HttpDelete]
         public async Task DeleteClinic(Guid guid)

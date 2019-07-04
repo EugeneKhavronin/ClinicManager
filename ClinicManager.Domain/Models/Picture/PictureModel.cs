@@ -1,6 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Http;
-namespace ClinicManager.Domain.Models
+
+namespace ClinicManager.Domain.Models.Picture
 {
     /// <summary>
     /// Модель добавления фотографии

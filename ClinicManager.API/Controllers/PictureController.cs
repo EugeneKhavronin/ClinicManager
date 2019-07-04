@@ -4,7 +4,9 @@ using System.Threading.Tasks;
 using ClinicManager.Database.Models;
 using ClinicManager.Domain.Interfaces;
 using ClinicManager.Domain.Models;
+using ClinicManager.Domain.Models.Picture;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace ClinicManager.API.Controllers
 {

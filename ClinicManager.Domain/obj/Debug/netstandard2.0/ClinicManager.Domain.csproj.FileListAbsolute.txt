@@ -1,0 +1,12 @@
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Domain\bin\Debug\netstandard2.0\ClinicManager.Domain.deps.json
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Domain\bin\Debug\netstandard2.0\ClinicManager.Domain.dll
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Domain\bin\Debug\netstandard2.0\ClinicManager.Domain.pdb
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Domain\bin\Debug\netstandard2.0\ClinicManager.Database.dll
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Domain\bin\Debug\netstandard2.0\ClinicManager.Database.pdb
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Domain\obj\Debug\netstandard2.0\ClinicManager.Domain.csprojAssemblyReference.cache
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Domain\obj\Debug\netstandard2.0\ClinicManager.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Domain\obj\Debug\netstandard2.0\ClinicManager.Domain.AssemblyInfoInputs.cache
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Domain\obj\Debug\netstandard2.0\ClinicManager.Domain.AssemblyInfo.cs
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Domain\obj\Debug\netstandard2.0\ClinicManager.Domain.csproj.CopyComplete
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Domain\obj\Debug\netstandard2.0\ClinicManager.Domain.dll
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Domain\obj\Debug\netstandard2.0\ClinicManager.Domain.pdb

@@ -6,6 +6,7 @@ using ClinicManager.Database;
 using ClinicManager.Database.Models;
 using ClinicManager.Domain.Interfaces;
 using ClinicManager.Domain.Models;
+using ClinicManager.Domain.Models.Picture;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClinicManager.Domain.Services

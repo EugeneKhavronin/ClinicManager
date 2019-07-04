@@ -1,0 +1,9 @@
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Database\bin\Release\netstandard2.0\ClinicManager.Database.deps.json
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Database\bin\Release\netstandard2.0\ClinicManager.Database.dll
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Database\bin\Release\netstandard2.0\ClinicManager.Database.pdb
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Database\obj\Release\netstandard2.0\ClinicManager.Database.csprojAssemblyReference.cache
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Database\obj\Release\netstandard2.0\ClinicManager.Database.csproj.CoreCompileInputs.cache
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Database\obj\Release\netstandard2.0\ClinicManager.Database.AssemblyInfoInputs.cache
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Database\obj\Release\netstandard2.0\ClinicManager.Database.AssemblyInfo.cs
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Database\obj\Release\netstandard2.0\ClinicManager.Database.dll
+C:\Users\Женя\RiderProjects\Clinic\ClinicManager.Database\obj\Release\netstandard2.0\ClinicManager.Database.pdb
