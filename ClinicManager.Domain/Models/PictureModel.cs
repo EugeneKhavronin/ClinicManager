@@ -5,12 +5,15 @@ namespace ClinicManager.Domain.Models
     /// <summary>
     /// Модель добавления фотографии
     /// </summary>
-    public class AddPictureModel
+    public class PictureModel
     {
-        public Guid PicGuid { get; set; }
+        /// <summary>
+        /// Название фотографии
+        /// </summary>
         public string Title { get; set; }
+        /// <summary>
+        /// Интерфейс получения фотографии
+        /// </summary>
         public IFormFile Picture { get; set; }
-        
-        //public string PictureType { get; set; }
     }
 }

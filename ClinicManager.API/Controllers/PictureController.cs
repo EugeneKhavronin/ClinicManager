@@ -24,26 +24,24 @@ namespace ClinicManager.API.Controllers
         /// <summary>
         /// Добавление фотографии
         /// </summary>
-        /// <param name="addPictureModel">Модель добавления фотографии</param>
+        /// <param name="pictureModel">Модель фотографии</param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<Guid> Create(AddPictureModel addPictureModel)
+        public async Task<Guid> Create(PictureModel pictureModel)
         {
-            await _pictureService.AddPicture(addPictureModel);
-            return addPictureModel.PicGuid;    
+            return await _pictureService.AddPicture(pictureModel);
         }
         
         /// <summary>
         /// Изменение фотографии
         /// </summary>
-        /// <param name="picGuid">Уникальный идентификатор фотографии</param>
-        /// <param name="editPictureModel">Модель изменения фотографии</param>
+        /// <param name="picGuid">Уникальный идентификатор</param>
+        /// <param name="pictureModel">Модель фотографии</param>
         /// <returns></returns>
         [HttpPut("{picGuid}")]
-        public async Task<Guid> Edit([FromRoute]Guid picGuid,EditPictureModel editPictureModel)
+        public async Task<Guid> Edit([FromRoute]Guid picGuid,PictureModel pictureModel)
         {
-            await _pictureService.EditPiсture(picGuid, editPictureModel);
-            return picGuid;
+            return await _pictureService.EditPiсture(picGuid, pictureModel);
         }
         
         /// <summary>
@@ -56,12 +54,20 @@ namespace ClinicManager.API.Controllers
         {
             await _pictureService.DeletePicture(pictureGuid);
         }
-
+        /// <summary>
+        /// Вывод фотографий
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IEnumerable<Picture>> GetPictures()
         {
             return await _pictureService.GetPictures();
         }
+        /// <summary>
+        /// Вывод фотографии
+        /// </summary>
+        /// <param name="picGuid">Уникальный идентификатор</param>
+        /// <returns></returns>
         [Route("{picGuid}")]
         [HttpGet]
         public async Task<Picture> GetPicture(Guid picGuid)

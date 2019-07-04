@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace ClinicManager.Database.Models
 {
     /// <summary>
-    /// 
+    /// Модель клиники
     /// </summary>
     public class Clinic
     {
@@ -48,6 +48,6 @@ namespace ClinicManager.Database.Models
         /// <summary>
         /// Уникальный идентификатор изображения
         /// </summary>
-       public Guid PictureGuid { get; set; }
+        public Guid PictureGuid { get; set; }
     }
 }

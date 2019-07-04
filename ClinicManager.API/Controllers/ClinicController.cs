@@ -24,9 +24,8 @@ namespace ClinicManager.API.Controllers
         }
 
         /// <summary>
-        /// Просмотр всех клиник 
+        /// Информация о всех клиниках
         /// </summary>
-        /// <param name="clinic"></param>
         /// <returns></returns>
         [HttpGet]
         public async Task<List<Clinic>> GetAll()
@@ -37,7 +36,7 @@ namespace ClinicManager.API.Controllers
         /// <summary>
         /// Информация об интересующей клинике
         /// </summary>
-        /// <param name="guid"></param>
+        /// <param name="guid">Уникальный идентификатор</param>
         /// <returns></returns>
         [HttpGet("{guid}")]
         public async Task<Clinic> GetClinic(Guid guid)
@@ -48,7 +47,7 @@ namespace ClinicManager.API.Controllers
         /// <summary>
         /// Добавление новой клиники
         /// </summary>
-        /// <param name="clinic"></param>
+        /// <param name="clinic">Модель клиники</param>
         /// <returns></returns>
         [HttpPost]
         public async Task<Guid> CreateClinic(Clinic clinic)
@@ -58,7 +57,7 @@ namespace ClinicManager.API.Controllers
         /// <summary>
         /// Редактирование информации о клинике 
         /// </summary>
-        /// <param name="clinic"></param>
+        /// <param name="clinic">Модель клиники</param>
         /// <returns></returns>
         [HttpPut]
         public async Task<Guid> UpdataClinic(Clinic clinic)
@@ -69,7 +68,7 @@ namespace ClinicManager.API.Controllers
         /// <summary>
         /// Удаление клиники
         /// </summary>
-        /// <param name="guid"></param>
+        /// <param name="guid">Уникальный идентификатор</param>
         /// <returns></returns>
         [HttpDelete]
         public async Task DeleteClinic(Guid guid)

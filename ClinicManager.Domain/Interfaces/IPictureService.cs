@@ -2,9 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ClinicManager.Database.Models;
-using System.IO;
 using ClinicManager.Domain.Models;
-using Microsoft.AspNetCore.Http;
 
 namespace ClinicManager.Domain.Interfaces
 {
@@ -16,16 +14,17 @@ namespace ClinicManager.Domain.Interfaces
         /// <summary>
         /// Добавление фотографии
         /// </summary>
-        /// <param name="pic">Модель фотографии</param>
+        /// <param name="pictureModel">Модель фотографии</param>
         /// <returns></returns>
-        Task AddPicture(AddPictureModel pic);
+        Task<Guid> AddPicture(PictureModel pictureModel);
 
         /// <summary>
         /// Изменение фотографии
         /// </summary>
-        /// <param name="pic">Модель фотографии</param>
+        /// <param name="picGuid">Уникальный идентификатор</param>
+        /// <param name="pictureModel">Модель фотографии</param>
         /// <returns></returns>
-        Task EditPiсture(Guid picGuid,EditPictureModel editPictureModel);
+        Task<Guid> EditPiсture(Guid picGuid, PictureModel pictureModel);
 
         /// <summary>
         /// Удаление фотографии
@@ -33,11 +32,13 @@ namespace ClinicManager.Domain.Interfaces
         /// <param name="pictureGuid">Уникальный идентификатор фотографии</param>
         /// <returns></returns>
         Task DeletePicture(Guid pictureGuid);
+
         /// <summary>
         /// Получение фотографий
         /// </summary>
         /// <returns></returns>
         Task<IEnumerable<Picture>> GetPictures();
+
         /// <summary>
         /// Получение фотографии
         /// </summary>
