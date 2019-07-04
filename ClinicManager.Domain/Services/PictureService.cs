@@ -8,6 +8,7 @@ using ClinicManager.Domain.Interfaces;
 using ClinicManager.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using ClinicManager.Domain;
+using ClinicManager.Domain.Models.Picture;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClinicManager.Domain.Services

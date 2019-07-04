@@ -1,11 +1,10 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ClinicManager.Database.Models
 {
     /// <summary>
-    /// 
+    /// Класс клиники
     /// </summary>
     public class Clinic
     {
@@ -23,7 +22,7 @@ namespace ClinicManager.Database.Models
         /// <summary>
         /// Адрес клиники
         /// </summary>
-        public string Adress { get; set; }
+        public string Address { get; set; }
 
         /// <summary>
         /// Номер телефона
