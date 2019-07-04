@@ -22,4 +22,32 @@
       <ProjectReference Include="..\ClinicManager.Domain\ClinicManager.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <DocFileItem Remove="obj\Debug\netcoreapp2.2\ClinicManager.API.xml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ResolveComReferenceCache Remove="obj\Debug\netcoreapp2.2\ClinicManager.API.csproj.ResolveComReference.cache" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <IntermediateAssembly Remove="obj\Debug\netcoreapp2.2\ClinicManager.API.dll" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_DebugSymbolsIntermediatePath Remove="obj\Debug\netcoreapp2.2\ClinicManager.API.pdb" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_DeploymentManifestEntryPoint Remove="obj\Debug\netcoreapp2.2\ClinicManager.API.dll" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ApplicationManifest Remove="obj\Debug\netcoreapp2.2\ClinicManager.API.dll.manifest" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <DeployManifest Remove="obj\Debug\netcoreapp2.2\ClinicManager.API.application" />
+    </ItemGroup>
+
 </Project>
