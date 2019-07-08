@@ -21,8 +21,7 @@ namespace ClinicManager.API
         }
 
         public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+        
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDomain();
@@ -39,20 +38,23 @@ namespace ClinicManager.API
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
+            services.AddDomain();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
+                #region Swagger
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();    //swagger
+                app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 {
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "ClinicManager V1");
                     c.RoutePrefix = String.Empty;
                 });
+                #endregion
                 app.UseStaticFiles();
             }
             else
@@ -61,7 +63,6 @@ namespace ClinicManager.API
                 app.UseHsts();
             }
 
-            //app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
