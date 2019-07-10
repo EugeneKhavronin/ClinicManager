@@ -1,0 +1,29 @@
+version: '3'
+
+volumes:
+  postgres:
+    driver: local
+    
+services:
+  postgres:
+    image: postgres:10
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ClinicManagerDb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      
+  clinic-manager-api:
+      image: localhost:6000/clinic-manager-api
+      ports:
+        - 5000:80
+      build:
+          context: ./
+      environment:
+          - ASPNETCORE_ENVIRONMENT=Development
+      restart: always
+      links:
+            - postgres

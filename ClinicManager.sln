@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicManager.API", "ClinicManager.API\ClinicManager.API.csproj", "{2269BFDD-BF75-4B6B-8E55-AAE304B57836}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicManager.Database", "ClinicManager.Database\ClinicManager.Database.csproj", "{6F4FBAC7-5EC1-495D-B867-FCB4A5C3964C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicManager.Domain", "ClinicManager.Domain\ClinicManager.Domain.csproj", "{942EBAD5-1F22-42BD-999A-E00F2D686FFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2269BFDD-BF75-4B6B-8E55-AAE304B57836}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2269BFDD-BF75-4B6B-8E55-AAE304B57836}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2269BFDD-BF75-4B6B-8E55-AAE304B57836}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2269BFDD-BF75-4B6B-8E55-AAE304B57836}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F4FBAC7-5EC1-495D-B867-FCB4A5C3964C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F4FBAC7-5EC1-495D-B867-FCB4A5C3964C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F4FBAC7-5EC1-495D-B867-FCB4A5C3964C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F4FBAC7-5EC1-495D-B867-FCB4A5C3964C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{942EBAD5-1F22-42BD-999A-E00F2D686FFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{942EBAD5-1F22-42BD-999A-E00F2D686FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{942EBAD5-1F22-42BD-999A-E00F2D686FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{942EBAD5-1F22-42BD-999A-E00F2D686FFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
