@@ -11,3 +11,9 @@ body {
 .input-group-modal div label {
     width: 50%;
 }
+
+.list-clinics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

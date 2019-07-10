@@ -1,56 +1,34 @@
-import React, { Component } from 'react';
-import ListClinic from './components/ListClinic/ListClinic';
-import Header from './header/Header';
-import ModalWindowMore from './modal-window-more/ModalWindowMore';
+import React, { Component, Fragment } from 'react';
+
+import { getClinics, createClinics, removeClinics } from './utils';
+import ListClinic from './components/ListClinic';
+import Header from './header';
+
 import './header/header.css';
 import './modal-window-more/modal-window-more.css';
 import './index.css';
 
 export default class App extends Component {
-  maxId = 100;
-
   state = {
-    clinicData: [
-      this.createTodoItem(
-        'Текст клиники ',
-        'Название клиники:МНТК, ',
-        'город:Обнинск, ',
-        'телефон: 84843941127, ',
-        'URL адрес: http://localhost:5000/, ',
-        'почта: @hadah, ',
-        'специализация клиник: хирургия, '
-      ),
-      this.createTodoItem('Make Awesome App', 'Астро'),
-      this.createTodoItem('Have a lunch', 'Клиника №1')
-    ]
+    clinicData: [],
+    isOpen: false
   };
 
-  createTodoItem(
-    label,
-    title,
-    address,
-    phoneNumber,
-    url,
-    email,
-    specialisation
-  ) {
-    return {
-      // eslint-disable-next-line no-plusplus
-      clinicGuid: this.maxId++,
-      label,
-      title,
-      address,
-      phoneNumber,
-      url,
-      email,
-      specialisation,
-      pictureGuid: 'string'
-    };
+  componentDidMount() {
+    getClinics.then(res => {
+      this.setState({ clinicData: res.data });
+    });
   }
-  more = (clinicGuid) => {
-    
+
+  handleClickOpen = () => {
+    this.setState({ isOpen: true });
   };
-  deleteItem = clinicGuid => {
+
+  handleClose = () => {
+    this.setState({ isOpen: false });
+  };
+
+  handleDeleteItem = clinicGuid => {
     this.setState(({ clinicData }) => {
       const idx = clinicData.findIndex(el => el.clinicGuid === clinicGuid);
 
@@ -59,19 +37,38 @@ export default class App extends Component {
       const newArray = [...before, ...after];
       return { clinicData: newArray };
     });
+    removeClinics(clinicGuid).then(res => console.log('qwdqwd',res))
+  };
+
+  submitCreateClinic = values => {
+    createClinics(values).then(res => {
+      this.setState(state => ({
+        clinicData: state.clinicData.concat({
+          ...values,
+          clinicGuid: res.data
+        }),
+        isOpen: false
+      }));
+    });
   };
 
   render() {
-    const { clinicData } = this.state;
+    const { clinicData, isOpen } = this.state;
+
     return (
-      <div>
-        <Header />
-        <ListClinic
-          todos={clinicData}
-          onDeleted={this.deleteItem}
-          onMore={this.more}
+      <Fragment>
+        <Header
+          isOpen={isOpen}
+          handleClickOpen={this.handleClickOpen}
+          handleClose={this.handleClose}
+          submitCreateClinic={this.submitCreateClinic}
         />
-      </div>
+        <ListClinic
+          clinicData={clinicData}
+          onDeleted={this.handleDeleteItem}
+          onMore={this.onMore}
+        />
+      </Fragment>
     );
   }
 }

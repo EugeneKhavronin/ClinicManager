@@ -5,27 +5,8 @@ import Modal from '../components/Modal';
 import AddForm from '../components/Form';
 
 class Header extends React.Component {
-  state = {
-    isOpen: false
-  };
-
-  sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-  onSubmit = async values => {
-    await this.sleep(300);
-    console.log(values)
-  };
-
-  handleClickOpen = () => {
-    this.setState({ isOpen: true });
-  };
-
-  handleClose = () => {
-    this.setState({ isOpen: false });
-  };
-
   render() {
-    const { isOpen } = this.state;
+    const { submitCreateClinic, handleClickOpen, handleClose, isOpen } = this.props;
 
     return (
       <header className="header-back">
@@ -33,13 +14,16 @@ class Header extends React.Component {
         <button
           type="button"
           className="button-add"
-          onClick={this.handleClickOpen}
+          onClick={handleClickOpen}
         >
           Добавить клинику
         </button>
-        <Modal isOpen={isOpen} handleClose={this.handleClose}>
+        <Modal isOpen={isOpen} handleClose={handleClose}>
           <DialogTitle id="alert-dialog-title">Добавить клинику</DialogTitle>
-          <AddForm onSubmit={this.onSubmit} handleClose={this.handleClose} />
+          <AddForm
+            onSubmit={submitCreateClinic}
+            handleClose={handleClose}
+          />
         </Modal>
       </header>
     );
