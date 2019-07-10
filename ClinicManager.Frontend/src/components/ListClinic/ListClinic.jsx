@@ -1,8 +1,6 @@
 import React from 'react';
 import './ListClinic.css';
-// eslint-disable-next-line import/no-named-as-default
 import ListItemClinic from '../ListItemClinic/ListItemClinic';
-
 
 const ListClinic = ({ todos, onDeleted, onMore }) => {
   const elements = todos.map(item => {
