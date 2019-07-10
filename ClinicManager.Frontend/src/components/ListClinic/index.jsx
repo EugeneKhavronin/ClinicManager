@@ -1,11 +1,11 @@
 import React from 'react';
+
 import './ListClinic.css';
-// eslint-disable-next-line import/no-named-as-default
-import ListItemClinic from '../ListItemClinic/ListItemClinic';
+import ListItemClinic from '../ListItemClinic';
 
 
-const ListClinic = ({ todos, onDeleted, onMore }) => {
-  const elements = todos.map(item => {
+const ListClinic = ({ clinicData, onDeleted, onMore }) => {
+  const elements = clinicData.length !== 0 ? clinicData.map(item => {
     const { clinicGuid, ...itemProps } = item;
     return (
       <div key={clinicGuid}>
@@ -16,7 +16,7 @@ const ListClinic = ({ todos, onDeleted, onMore }) => {
         />
       </div>
     );
-  });
+  }) : '';
   return <div className="list-group todo-list">{elements}</div>;
 };
 

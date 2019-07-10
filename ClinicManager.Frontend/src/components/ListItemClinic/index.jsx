@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+
 import './ListItemClinic.css';
 
-export default class ListItemClinic extends Component {
+export default class Index extends Component {
   render() {
     const {
-      label,
       title,
       address,
       phoneNumber,
@@ -23,7 +23,6 @@ export default class ListItemClinic extends Component {
         <span>{email}</span>
         <span>{url}</span>
         <span>{specialisation}</span>
-        <span>{label}</span>
         <button
           type="button"
           className="btn-outline-danger btn-sm float-right"
