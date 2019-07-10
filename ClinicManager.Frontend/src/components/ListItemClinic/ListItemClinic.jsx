@@ -10,7 +10,8 @@ export default class ListItemClinic extends Component {
       phoneNumber,
       url,
       email,
-      specialisation
+      specialisation,
+      onDeleted
     } = this.props;
 
     return (
@@ -22,6 +23,20 @@ export default class ListItemClinic extends Component {
         <span>{url}</span>
         <span>{specialisation}</span>
         <span>{label}</span>
+        <button
+          type="button"
+          className="btn btn-outline-danger btn-sm float-right"
+          onClick={onDeleted}
+        >
+          Кнопка удаление
+        </button>
+        <button
+          type="button"
+          className="btn btn-outline-danger btn-sm float-right"
+          onClick={onDeleted}
+        >
+          Подробнее
+        </button>
       </div>
     );
   }

@@ -3,12 +3,17 @@ import './ListClinic.css';
 // eslint-disable-next-line import/no-named-as-default
 import ListItemClinic from '../ListItemClinic/ListItemClinic';
 
-const ListClinic = ({ todos }) => {
+
+const ListClinic = ({ todos, onDeleted }) => {
+    console.log('onDeleted', onDeleted);
   const elements = todos.map(item => {
     const { clinicGuid, ...itemProps } = item;
     return (
       <div key={clinicGuid}>
-        <ListItemClinic {...itemProps} />
+        <ListItemClinic
+          {...itemProps}
+          onDeleted={() => onDeleted(clinicGuid)}
+        />
       </div>
     );
   });
