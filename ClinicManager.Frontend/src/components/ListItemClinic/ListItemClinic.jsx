@@ -11,7 +11,8 @@ export default class ListItemClinic extends Component {
       url,
       email,
       specialisation,
-      onDeleted
+      onDeleted,
+      onMore
     } = this.props;
 
     return (
