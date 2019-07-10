@@ -5,7 +5,7 @@ namespace ClinicManager.API.Controllers
 {
     public class HomeController : Controller
     {
-        
+
         [HttpGet]
         [Route("{*catchall}")]
         public async Task<IActionResult> Index()
