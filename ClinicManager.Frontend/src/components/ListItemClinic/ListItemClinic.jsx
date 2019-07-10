@@ -11,7 +11,8 @@ export default class ListItemClinic extends Component {
       url,
       email,
       specialisation,
-      onDeleted
+      onDeleted,
+      onMore
     } = this.props;
 
     return (
@@ -32,8 +33,10 @@ export default class ListItemClinic extends Component {
         </button>
         <button
           type="button"
-          className="btn btn-outline-danger btn-sm float-right"
-          onClick={onDeleted}
+          className="btn btn-primary"
+          data-toggle="modal"
+          data-target="#myModal"
+          onClick={onMore}
         >
           Подробнее
         </button>

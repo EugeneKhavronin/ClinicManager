@@ -4,8 +4,7 @@ import './ListClinic.css';
 import ListItemClinic from '../ListItemClinic/ListItemClinic';
 
 
-const ListClinic = ({ todos, onDeleted }) => {
-    console.log('onDeleted', onDeleted);
+const ListClinic = ({ todos, onDeleted, onMore }) => {
   const elements = todos.map(item => {
     const { clinicGuid, ...itemProps } = item;
     return (
@@ -13,6 +12,7 @@ const ListClinic = ({ todos, onDeleted }) => {
         <ListItemClinic
           {...itemProps}
           onDeleted={() => onDeleted(clinicGuid)}
+          onMore={() => onMore(clinicGuid)}
         />
       </div>
     );

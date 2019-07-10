@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-
 import ListClinic from './components/ListClinic/ListClinic';
 import Header from './header/Header';
+import ModalWindowMore from './modal-window-more/ModalWindowMore';
 import './header/header.css';
 import './modal-window-more/modal-window-more.css';
 import './index.css';
@@ -47,7 +47,9 @@ export default class App extends Component {
       pictureGuid: 'string'
     };
   }
-
+  more = (clinicGuid) => {
+    
+  };
   deleteItem = clinicGuid => {
     this.setState(({ clinicData }) => {
       const idx = clinicData.findIndex(el => el.clinicGuid === clinicGuid);
@@ -64,7 +66,11 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <ListClinic todos={clinicData} />
+        <ListClinic
+          todos={clinicData}
+          onDeleted={this.deleteItem}
+          onMore={this.more}
+        />
       </div>
     );
   }
