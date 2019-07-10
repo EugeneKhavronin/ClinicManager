@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+
 import ListClinic from './components/ListClinic/ListClinic';
+import Header from './header/Header';
+import './header/header.css';
+import './modal-window-more/modal-window-more.css';
+import './index.css';
 
 export default class App extends Component {
   maxId = 100;
@@ -45,6 +50,11 @@ export default class App extends Component {
 
   render() {
     const { clinicData } = this.state;
-    return <ListClinic todos={clinicData} />;
+    return (
+        <div>
+          <Header />
+          <ListClinic todos={clinicData} />
+        </div>
+    );
   }
 }
