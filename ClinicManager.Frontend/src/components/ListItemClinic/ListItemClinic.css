@@ -1,11 +1,11 @@
 .info{
-    background-color: blue;
-    color:white;
-    width:50%;
+    background-color: white;
+    color: #696969;
+    width: 50%;
     margin-left: 25%;
     margin-right: 25%;
     margin-top: 20px;
-    display:inline-block;
+    display: inline-block;
     padding: 40px;
     border-radius: 20px;
     padding-right:170px;

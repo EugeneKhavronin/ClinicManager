@@ -51,10 +51,10 @@ export default class App extends Component {
   render() {
     const { clinicData } = this.state;
     return (
-        <div>
-          <Header />
-          <ListClinic todos={clinicData} />
-        </div>
+      <div>
+        <Header />
+        <ListClinic todos={clinicData} />
+      </div>
     );
   }
 }
