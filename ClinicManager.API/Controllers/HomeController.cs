@@ -8,9 +8,9 @@ namespace ClinicManager.API.Controllers
 
         [HttpGet]
         [Route("{*catchall}")]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return  View();
+            return  File("index.html", "text/html");
         }
     }
 }

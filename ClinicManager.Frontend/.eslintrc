@@ -1,0 +1,29 @@
+{
+  "env": {
+    "browser": true
+  },
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "parser": "babel-eslint",
+  "rules": {
+    "prettier/prettier": ["error", { "singleQuote": true }],
+    "import/prefer-default-export": "off",
+    "react/forbid-prop-types": "off",
+    "react/require-default-props": "off",
+    "prefer-promise-reject-errors": "off",
+    "no-throw-literal": "off",
+    "quotes": ["error", "single"],
+    "jsx-quotes": ["error", "prefer-double"]
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": [
+        ["common", "./src/common"],
+        ["sources", "./src/sources"],
+        ["config", "./src/config"],
+        ["images", "./public/images"],
+        ["sprite", "./public/images/sprite"]
+      ]
+    }
+  }
+}

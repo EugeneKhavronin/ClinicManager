@@ -52,7 +52,6 @@ namespace ClinicManager.API
                 app.UseSwaggerUI(c =>
                 {
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "ClinicManager V1");
-                    c.RoutePrefix = String.Empty;
                 });
                 #endregion
                 app.UseStaticFiles();
