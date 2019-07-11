@@ -1,0 +1,27 @@
+.header-back {
+    width: 100%;
+    height: 70px;
+    background-color: #20B2AA;
+    color: white;
+    padding-left: 30px;
+    padding-top: 6px;
+;
+}
+.button-add {
+    position: absolute;
+    width: 180px;
+    height: 40px;
+    background-color: #20B2AA;
+    border: white solid 3px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 17px;
+    font-weight: bold;
+    top: 15px;
+    right: 50px;
+}
+.button-add:hover {
+    box-shadow: 10px 5px 5px white;
+}
