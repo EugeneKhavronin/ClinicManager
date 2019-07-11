@@ -24,6 +24,28 @@ namespace ClinicManager.API.Controllers
         }
 
         /// <summary>
+        /// Вывод фотографий
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IEnumerable<Picture>> GetAll()
+        {
+            return await _pictureService.GetAll();
+        }
+
+        /// <summary>
+        /// Вывод фотографии
+        /// </summary>
+        /// <param name="pictureGuid">Уникальный идентификатор</param>
+        /// <returns></returns>
+        [Route("{pictureGuid}")]
+        [HttpGet]
+        public async Task<Picture> Get(Guid pictureGuid)
+        {
+            return await _pictureService.Get(pictureGuid);
+        }
+
+        /// <summary>
         /// Добавление фотографии
         /// </summary>
         /// <param name="pictureModel">Модель фотографии</param>
@@ -33,48 +55,28 @@ namespace ClinicManager.API.Controllers
         {
             return await _pictureService.AddPicture(pictureModel);
         }
-        
+
         /// <summary>
         /// Изменение фотографии
         /// </summary>
-        /// <param name="picGuid">Уникальный идентификатор</param>
+        /// <param name="pictureGuid">Уникальный идентификатор</param>
         /// <param name="pictureModel">Модель фотографии</param>
         /// <returns></returns>
         [HttpPut("{picGuid}")]
-        public async Task<Guid> Edit([FromRoute]Guid picGuid,PictureModel pictureModel)
+        public async Task<Guid> Update([FromRoute] Guid pictureGuid, PictureModel pictureModel)
         {
-            return await _pictureService.EditPiсture(picGuid, pictureModel);
+            return await _pictureService.UpdatePiсture(pictureGuid, pictureModel);
         }
-        
+
         /// <summary>
         /// Удаление фотографии
         /// </summary>
         /// <param name="pictureGuid">Уникальный идентификатор фотографии</param>
         /// <returns></returns>
         [HttpDelete]
-        public async Task DeletePicture(Guid pictureGuid)
+        public async Task Delete(Guid pictureGuid)
         {
-            await _pictureService.DeletePicture(pictureGuid);
-        }
-        /// <summary>
-        /// Вывод фотографий
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public async Task<IEnumerable<Picture>> GetPictures()
-        {
-            return await _pictureService.GetPictures();
-        }
-        /// <summary>
-        /// Вывод фотографии
-        /// </summary>
-        /// <param name="picGuid">Уникальный идентификатор</param>
-        /// <returns></returns>
-        [Route("{picGuid}")]
-        [HttpGet]
-        public async Task<Picture> GetPicture(Guid picGuid)
-        {
-            return await _pictureService.GetPicture(picGuid);
+            await _pictureService.Delete(pictureGuid);
         }
     }
 }
