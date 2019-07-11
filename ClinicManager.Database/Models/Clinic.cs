@@ -75,13 +75,27 @@ namespace ClinicManager.Database.Models
             Guid guid)
         {
             Guid = Guid.NewGuid();
-            title = Title;
-            address = Address;
-            phoneNumber = PhoneNumber;
-            url = Url;
-            email = Email;
-            specialisation = Specialisation;
-            guid = PictureGuid;
+            Title = title;
+            Address = address;
+            PhoneNumber = phoneNumber;
+            Url = url;
+            Email = email;
+            Specialisation = specialisation;
+            PictureGuid = guid;
+        }
+
+        /// <inheritdoc />
+        public Clinic(Guid guid, string title, string address, string phoneNumber, string url, string email,
+            string specialisation, Guid pictureGuid)
+        {
+            Guid = guid;
+            Title = title;
+            Address = address;
+            PhoneNumber = phoneNumber;
+            Url = url;
+            Email = email;
+            Specialisation = specialisation;
+            PictureGuid = pictureGuid;
         }
     }
 }

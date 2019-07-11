@@ -15,10 +15,10 @@ namespace ClinicManager.API.Controllers
     [ApiController]
     public class ClinicController : Controller
     {
-        private readonly IClinicService _clinicService;
+        private readonly IClinicsService _clinicService;
 
         /// <summary/>
-        public ClinicController(IClinicService clinicService)
+        public ClinicController(IClinicsService clinicService)
         {
             _clinicService = clinicService;
         }
@@ -28,7 +28,7 @@ namespace ClinicManager.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IEnumerable<Clinic>> GetAll()
+        public async Task<IEnumerable<ClinicViewModel>> GetAll()
         {
             return await _clinicService.GetAll();
         }
@@ -39,7 +39,7 @@ namespace ClinicManager.API.Controllers
         /// <param name="guid">Уникальный идентификатор клиники</param>
         /// <returns></returns>
         [HttpGet("{guid}")]
-        public async Task<Clinic> Get(Guid guid)
+        public async Task<ClinicViewModel> Get(Guid guid)
         {
             return await _clinicService.Get(guid);
         }
@@ -61,7 +61,7 @@ namespace ClinicManager.API.Controllers
         /// <param name="guid">Уникальный идентификатор клиники</param>
         /// <param name="clinicModel">Модель клиники</param>
         /// <returns></returns>
-        [HttpPut]
+        [HttpPut("{guid}")]
         public async Task<Guid> Update(Guid guid, ClinicModel clinicModel)
         {
             return await _clinicService.Update(guid, clinicModel);

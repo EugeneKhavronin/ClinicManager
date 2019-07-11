@@ -18,11 +18,13 @@ namespace ClinicManager.Database.Models
         /// <summary>
         /// Название фотографии
         /// </summary>
+        [Required]
         public string Title { get; set; }
 
         /// <summary>
         /// Фотография клиники
         /// </summary>
+        [Required]
         public byte[] ClinicPicture { get; set; }
 
         /// <summary>
@@ -44,15 +46,27 @@ namespace ClinicManager.Database.Models
         }
 
         /// <summary>
-        /// Конструктор модели
+        /// Конструктор добавления модели изображения
         /// </summary>
         /// <param name="title">Название фотографии</param>
         /// <param name="clinicPicture">Фотография клиники</param>
         public Picture(string title, byte[] clinicPicture)
         {
             Guid = Guid.NewGuid();
-            title = Title;
-            clinicPicture = ClinicPicture;
+            Title = title;
+            ClinicPicture = clinicPicture;
+        }
+
+        /// <summary>
+        /// Конструктор редактирования модели изображения
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="clinicPicture"></param>
+        /// <inheritdoc />
+        public Picture(Guid guid, string title, byte[] clinicPicture)
+        {
+            Title = title;
+            ClinicPicture = clinicPicture;
         }
     }
 }

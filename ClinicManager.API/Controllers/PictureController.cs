@@ -24,25 +24,16 @@ namespace ClinicManager.API.Controllers
         }
 
         /// <summary>
-        /// Вывод фотографий
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public async Task<IEnumerable<Picture>> GetAll()
-        {
-            return await _pictureService.GetAll();
-        }
-
-        /// <summary>
         /// Вывод фотографии
         /// </summary>
         /// <param name="pictureGuid">Уникальный идентификатор</param>
         /// <returns></returns>
         [Route("{pictureGuid}")]
         [HttpGet]
-        public async Task<Picture> Get(Guid pictureGuid)
+        public async Task<FileStreamResult> Get(Guid pictureGuid)
         {
-            return await _pictureService.Get(pictureGuid);
+            var picture = await _pictureService.Get(pictureGuid);
+            return File(picture.Content, "application/octet-stream", picture.Guid.ToString());
         }
 
         /// <summary>
@@ -53,7 +44,7 @@ namespace ClinicManager.API.Controllers
         [HttpPost]
         public async Task<Guid> Create(PictureModel pictureModel)
         {
-            return await _pictureService.AddPicture(pictureModel);
+            return await _pictureService.Create(pictureModel);
         }
 
         /// <summary>
@@ -62,10 +53,10 @@ namespace ClinicManager.API.Controllers
         /// <param name="pictureGuid">Уникальный идентификатор</param>
         /// <param name="pictureModel">Модель фотографии</param>
         /// <returns></returns>
-        [HttpPut("{picGuid}")]
+        [HttpPut("{pictureGuid}")]
         public async Task<Guid> Update([FromRoute] Guid pictureGuid, PictureModel pictureModel)
         {
-            return await _pictureService.UpdatePiсture(pictureGuid, pictureModel);
+            return await _pictureService.Update(pictureGuid, pictureModel);
         }
 
         /// <summary>
