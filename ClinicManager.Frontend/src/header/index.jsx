@@ -2,7 +2,7 @@ import React from 'react';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 import Modal from '../components/Modal';
-import AddForm from '../components/Form';
+import { CreateForm } from '../components/Form';
 
 class Header extends React.Component {
   render() {
@@ -11,19 +11,12 @@ class Header extends React.Component {
     return (
       <header className="header-back">
         <h1>Clinic Manager</h1>
-        <button
-          type="button"
-          className="button-add"
-          onClick={handleClickOpen}
-        >
+        <button type="button" className="button-add" onClick={handleClickOpen}>
           Добавить клинику
         </button>
         <Modal isOpen={isOpen} handleClose={handleClose}>
           <DialogTitle id="alert-dialog-title">Добавить клинику</DialogTitle>
-          <AddForm
-            onSubmit={submitCreateClinic}
-            handleClose={handleClose}
-          />
+          <CreateForm onSubmit={submitCreateClinic} handleClose={handleClose} />
         </Modal>
       </header>
     );

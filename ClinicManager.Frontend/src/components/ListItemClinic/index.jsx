@@ -12,47 +12,25 @@ export default class Index extends Component {
       url,
       email,
       specialisation,
+      pictureGuid,
+      handleClickEditOpen,
       onDeleted,
-      pictureGuid
+      handleClickOpenMore
     } = this.props;
 
     return (
       <Card
-        style={{ margin: 5 }}
         title={title}
         address={address}
         phoneNumber={phoneNumber}
         url={url}
         email={email}
         specialisation={specialisation}
+        handleClickEditOpen={handleClickEditOpen}
         onDeleted={onDeleted}
+        handleClickOpenMore={handleClickOpenMore}
         pictureGuid={pictureGuid}
       />
     );
   }
 }
-
-/*
-* <div className="info">
-        <span>{title}</span>
-        <span>{address}</span>
-        <span>{phoneNumber}</span>
-        <span>{email}</span>
-        <span>{url}</span>
-        <span>{specialisation}</span>
-        <button
-          type="button"
-          className="btn-outline-danger btn-sm float-right"
-          onClick={onDeleted}
-        >
-          <i className="fa fa-trash-o" />
-        </button>
-        <button
-          type="button"
-          className="btn-outline-danger btn-sm float-right"
-          onClick={onDeleted}
-        >
-          <i className="fa fa-edit" />
-        </button>
-      </div>
-* */

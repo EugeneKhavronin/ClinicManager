@@ -3,19 +3,22 @@ import React from 'react';
 import ListItemClinic from '../ListItemClinic';
 import './listClinic.css';
 
-const ListClinic = ({ clinicData, onDeleted, onMore }) => {
+const ListClinic = ({ clinicData, onDeleted, handleClickEditOpen, handleClickOpenMore }) => {
   return (
     <div className="list-clinics">
       {clinicData.map(item => {
         const { clinicGuid, ...itemProps } = item;
 
         return (
-          <ListItemClinic
-            {...itemProps}
-            key={clinicGuid}
-            onDeleted={() => onDeleted(clinicGuid)}
-            onMore={() => onMore(clinicGuid)}
-          />
+          <>
+            <ListItemClinic
+              {...itemProps}
+              key={clinicGuid}
+              handleClickEditOpen={() => handleClickEditOpen(clinicGuid)}
+              onDeleted={() => onDeleted(clinicGuid)}
+              handleClickOpenMore={() => handleClickOpenMore(clinicGuid)}
+            />
+          </>
         );
       })}
     </div>

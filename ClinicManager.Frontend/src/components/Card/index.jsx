@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Fab from '@material-ui/core/Fab';
 import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 
 import { getFile } from '../../utils';
 
@@ -24,7 +25,8 @@ const useStyles = makeStyles({
   },
   fab: {
     width: 35,
-    height: 35
+    height: 35,
+    margin: 5
   }
 });
 
@@ -35,7 +37,9 @@ export default function MediaCard({
   url,
   email,
   specialisation,
+  handleClickEditOpen,
   onDeleted,
+  handleClickOpenMore,
   pictureGuid
 }) {
   const classes = useStyles();
@@ -67,12 +71,17 @@ export default function MediaCard({
         </CardContent>
       </Fragment>
       <CardActions className={classes.cardAction}>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={handleClickOpenMore}>
           Подробнее
         </Button>
-        <Fab aria-label="Delete" className={classes.fab} onClick={onDeleted}>
-          <DeleteIcon />
-        </Fab>
+        <div>
+          <Fab aria-label="Edit" className={classes.fab} onClick={handleClickEditOpen}>
+            <EditIcon />
+          </Fab>
+          <Fab aria-label="Delete" className={classes.fab} onClick={onDeleted}>
+            <DeleteIcon />
+          </Fab>
+        </div>
       </CardActions>
     </Card>
   );
