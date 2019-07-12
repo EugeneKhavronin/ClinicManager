@@ -7,16 +7,16 @@ const ListClinic = ({ clinicData, onDeleted, handleClickEditOpen, handleClickOpe
   return (
     <div className="list-clinics">
       {clinicData.map(item => {
-        const { clinicGuid, ...itemProps } = item;
+        const { guid, ...itemProps } = item;
 
         return (
           <>
             <ListItemClinic
               {...itemProps}
-              key={clinicGuid}
-              handleClickEditOpen={() => handleClickEditOpen(clinicGuid)}
-              onDeleted={() => onDeleted(clinicGuid)}
-              handleClickOpenMore={() => handleClickOpenMore(clinicGuid)}
+              key={guid}
+              handleClickEditOpen={() => handleClickEditOpen(guid)}
+              onDeleted={() => onDeleted(guid)}
+              handleClickOpenMore={() => handleClickOpenMore(guid)}
             />
           </>
         );
