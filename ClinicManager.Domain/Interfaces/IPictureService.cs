@@ -21,7 +21,7 @@ namespace ClinicManager.Domain.Interfaces
         /// </summary>
         /// <param name="pictureModel">Модель фотографии</param>
         /// <returns></returns>
-        Task<Guid> Create(PictureModel pictureModel); //!!!
+        Task<Guid> Create(PictureModel pictureModel);
 
         /// <summary>
         /// Изменение фотографии
