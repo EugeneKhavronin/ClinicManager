@@ -23,7 +23,7 @@ namespace ClinicManager.Domain.Services
         public async Task<PictureViewModel> Get(Guid pictureGuid)
         {
             var picture = await _context.Pictures.FindAsync(pictureGuid);
-            PictureViewModel viewModel = new PictureViewModel(picture.Guid, picture.ClinicPicture);
+            var viewModel = new PictureViewModel(picture.Guid, picture.ClinicPicture);
 
             return viewModel;
         }

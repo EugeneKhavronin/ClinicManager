@@ -107,6 +107,7 @@ export default class App extends Component {
         clinicData: state.clinicData.concat({
           // присваеваем клиник дате?
           ...values,
+          pictureGuid: "bf8487f3-6485-4f06-b771-7276fc8abaf0",
           guid: res.data
         }),
         isOpen: false
