@@ -1,13 +1,10 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using ClinicManager.Database;
 using ClinicManager.Database.Models;
 using ClinicManager.Domain.Interfaces;
-using ClinicManager.Domain.Models;
 using ClinicManager.Domain.Models.Picture;
-using Microsoft.EntityFrameworkCore;
 
 namespace ClinicManager.Domain.Services
 {
@@ -21,15 +18,24 @@ namespace ClinicManager.Domain.Services
         {
             _context = context;
         }
-        
+
         /// <inheritdoc />
-        public async Task<Guid> AddPicture(PictureModel pictureModel)
+        public async Task<PictureViewModel> Get(Guid pictureGuid)
+        {
+            var picture = await _context.Pictures.FindAsync(pictureGuid);
+            PictureViewModel viewModel = new PictureViewModel(picture.Guid, picture.ClinicPicture);
+
+            return viewModel;
+        }
+
+        /// <inheritdoc />
+        public async Task<Guid> Create(PictureModel pictureModel)
         {
             Guid guid = Guid.NewGuid();
             var picture = new Picture()
             {
                 Title = pictureModel.Title,
-                PictureGuid = guid
+                Guid = guid
             };
             using (var memoryStream = new MemoryStream())
             {
@@ -38,44 +44,33 @@ namespace ClinicManager.Domain.Services
                 _context.Add(picture);
                 await _context.SaveChangesAsync();
             }
-            return picture.PictureGuid;
+
+            return picture.Guid;
         }
-        
+
         /// <inheritdoc />
-        public async Task<Guid> EditPiсture(Guid picGuid, PictureModel pictureModel)
+        public async Task<Guid> Update(Guid pictureGuid, PictureModel pictureModel)
         {
-            Picture newPicture = _context.Pictures.Find(picGuid);
+            var newPicture = _context.Pictures.Find(pictureGuid);
             using (var memoryStream = new MemoryStream())
             {
                 await pictureModel.Picture.CopyToAsync(memoryStream);
                 newPicture.ClinicPicture = memoryStream.ToArray();
             }
+
             newPicture.Title = pictureModel.Title;
-            newPicture.PictureGuid = picGuid;
+            newPicture.Guid = pictureGuid;
             _context.Pictures.Update(newPicture);
             _context.SaveChanges();
-            return newPicture.PictureGuid;
+            return newPicture.Guid;
         }
-        
+
         /// <inheritdoc />
-        public async Task DeletePicture(Guid pictureGuid)
+        public async Task Delete(Guid pictureGuid)
         {
             var picture = await _context.Pictures.FindAsync(pictureGuid);
             _context.Pictures.Remove(picture);
             await _context.SaveChangesAsync();
-        }
-
-        /// <inheritdoc />
-        public async Task<IEnumerable<Picture>> GetPictures()
-        {
-            return await _context.Pictures.ToListAsync();
-        }
-
-        /// <inheritdoc />
-        public async Task<Picture> GetPicture(Guid picGuid)
-        {
-            var picture = await _context.Pictures.FindAsync(picGuid);
-            return picture;
         }
     }
 }

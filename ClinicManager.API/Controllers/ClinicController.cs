@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ClinicManager.Database.Models;
 using ClinicManager.Domain.Interfaces;
 using ClinicManager.Domain.Models.Clinic;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +14,10 @@ namespace ClinicManager.API.Controllers
     [ApiController]
     public class ClinicController : Controller
     {
-
-        private readonly IClinicService _clinicService;
+        private readonly IClinicsService _clinicService;
 
         /// <summary/>
-        public ClinicController(IClinicService clinicService)
+        public ClinicController(IClinicsService clinicService)
         {
             _clinicService = clinicService;
         }
@@ -29,7 +27,7 @@ namespace ClinicManager.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<List<Clinic>> GetAll()
+        public async Task<IEnumerable<ClinicViewModel>> GetAll()
         {
             return await _clinicService.GetAll();
         }
@@ -40,9 +38,9 @@ namespace ClinicManager.API.Controllers
         /// <param name="guid">Уникальный идентификатор клиники</param>
         /// <returns></returns>
         [HttpGet("{guid}")]
-        public async Task<Clinic> GetClinic(Guid guid)
+        public async Task<ClinicViewModel> Get(Guid guid)
         {
-            return await _clinicService.GetClinic(guid);
+            return await _clinicService.Get(guid);
         }
 
         /// <summary>
@@ -51,9 +49,9 @@ namespace ClinicManager.API.Controllers
         /// <param name="clinicModel">Модель клиники</param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<Guid> CreateClinic(ClinicModel clinicModel)
+        public async Task<Guid> Create(ClinicModel clinicModel)
         {
-            return await _clinicService.CreateClinic(clinicModel);
+            return await _clinicService.Create(clinicModel);
         }
 
         /// <summary>
@@ -62,10 +60,10 @@ namespace ClinicManager.API.Controllers
         /// <param name="guid">Уникальный идентификатор клиники</param>
         /// <param name="clinicModel">Модель клиники</param>
         /// <returns></returns>
-        [HttpPut]
-        public async Task<Guid>  UpdateClinic(Guid guid, ClinicModel clinicModel)
+        [HttpPut("{guid}")]
+        public async Task<Guid> Update(Guid guid, ClinicModel clinicModel)
         {
-            return await _clinicService.UpdateClinic(guid, clinicModel);
+            return await _clinicService.Update(guid, clinicModel);
         }
 
         /// <summary>
@@ -74,10 +72,9 @@ namespace ClinicManager.API.Controllers
         /// <param name="guid">Уникальный идентификатор клиники</param>
         /// <returns></returns>
         [HttpDelete]
-        public async Task DeleteClinic(Guid guid)
+        public async Task Delete(Guid guid)
         {
-            await _clinicService.DeleteClinic(guid);
-            
+            await _clinicService.Delete(guid);
         }
     }
 }

@@ -11,13 +11,18 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@material-ui/core": "^4.2.0",
+    "@material-ui/icons": "^4.2.1",
     "axios": "^0.18.0",
     "core-js": "2.6.9",
+    "css-loader": "^3.0.0",
     "eslint-config-prettier": "^4.3.0",
+    "final-form": "^4.16.1",
     "normalizr": "^3.3.0",
     "prop-types": "^15.6.2",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "react-final-form": "^6.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",

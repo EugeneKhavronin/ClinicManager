@@ -21,7 +21,7 @@ namespace ClinicManager.API
         }
 
         public IConfiguration Configuration { get; }
-        
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDomain();
@@ -33,7 +33,7 @@ namespace ClinicManager.API
             {
                 c.SwaggerDoc("v1", new Info
                     {Title = "ClinicManager", Version = "v1"});
-                
+
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
@@ -41,19 +41,19 @@ namespace ClinicManager.API
             services.AddDomain();
         }
 
-        
+
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 #region Swagger
+
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "ClinicManager V1");
-                });
+                app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "ClinicManager V1"); });
+
                 #endregion
+
                 app.UseStaticFiles();
             }
             else

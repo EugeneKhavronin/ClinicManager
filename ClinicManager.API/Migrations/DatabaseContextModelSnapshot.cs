@@ -21,44 +21,48 @@ namespace ClinicManager.API.Migrations
 
             modelBuilder.Entity("ClinicManager.Database.Models.Clinic", b =>
                 {
-                    b.Property<Guid>("ClinicGuid")
+                    b.Property<Guid>("Guid")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Address");
+                    b.Property<string>("Address")
+                        .IsRequired();
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("PhoneNumber");
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired();
 
                     b.Property<Guid>("PictureGuid");
 
-                    b.Property<string>("Specialisation");
+                    b.Property<string>("Specialisation")
+                        .IsRequired();
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .IsRequired();
 
                     b.Property<string>("Url");
 
-                    b.HasKey("ClinicGuid");
+                    b.HasKey("Guid");
 
                     b.ToTable("Clinics");
                 });
 
             modelBuilder.Entity("ClinicManager.Database.Models.Picture", b =>
                 {
-                    b.Property<Guid>("PictureGuid")
+                    b.Property<Guid>("Guid")
                         .ValueGeneratedOnAdd();
 
                     b.Property<Guid>("ClinicGuid");
 
-                    b.Property<Guid?>("ClinicPicClinicGuid");
+                    b.Property<Guid?>("ClinicPicGuid");
 
                     b.Property<byte[]>("ClinicPicture");
 
                     b.Property<string>("Title");
 
-                    b.HasKey("PictureGuid");
+                    b.HasKey("Guid");
 
-                    b.HasIndex("ClinicPicClinicGuid");
+                    b.HasIndex("ClinicPicGuid");
 
                     b.ToTable("Pictures");
                 });
@@ -67,7 +71,7 @@ namespace ClinicManager.API.Migrations
                 {
                     b.HasOne("ClinicManager.Database.Models.Clinic", "ClinicPic")
                         .WithMany()
-                        .HasForeignKey("ClinicPicClinicGuid");
+                        .HasForeignKey("ClinicPicGuid");
                 });
 #pragma warning restore 612, 618
         }
