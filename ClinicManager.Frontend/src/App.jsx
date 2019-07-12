@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import Typography from '@material-ui/core/Typography';
-import Button from "@material-ui/core/Button";
+import Button from '@material-ui/core/Button';
 
 import { getClinics, createClinics, removeClinics, editClinic } from './utils';
 import ListClinic from './components/ListClinic';
@@ -13,7 +13,6 @@ import Modal from './components/Modal';
 import './header/header.css';
 import './modal-window-more/modal-window-more.css';
 import './index.css';
-
 
 export default class App extends Component {
   state = {
@@ -26,7 +25,9 @@ export default class App extends Component {
 
   componentDidMount() {
     getClinics.then(res => {
+      // res - наши массивы с данными +вся остальная инфа
       this.setState({ clinicData: res.data });
+      // только массивы data из res
     });
   }
 
@@ -38,50 +39,60 @@ export default class App extends Component {
     this.setState({ isOpen: false });
   };
 
-  handleClickOpenMore = clinicGuid => {
+  handleClickOpenMore = guid => {
     const { clinicData } = this.state;
-    const idx = clinicData.findIndex(el => el.clinicGuid === clinicGuid);
-    this.setState({ isOpenMore: true, clinic: clinicData[idx] });
+    const idx = clinicData.findIndex(el => el.guid === guid);
+    this.setState({ isOpenMore: true, clinic: clinicData[idx] }); // clinicData[idx] - данные о одной клинике
   };
 
   handleCloseMore = () => {
     this.setState({ isOpenMore: false, clinic: {} });
+    // clinic: {} это?
   };
 
-  handleClickEdtOpen = clinicGuid => {
+  handleClickEdtOpen = guid => {
     const { clinicData } = this.state;
-    const idx = clinicData.findIndex(el => el.clinicGuid === clinicGuid);
-    this.setState({ isOpenEdit: true, clinic: clinicData[idx] });
+    // clinicData - наши клиники с данными
+    const idx = clinicData.findIndex(el => el.guid === guid);
+    this.setState({ isOpenEdit: true, clinic: clinicData[idx] }); // clinicData[idx] - данные о одной клинике
   };
 
   handleEditClose = () => {
     this.setState({ isOpenEdit: false, clinic: {} });
   };
 
-  handleDeleteItem = clinicGuid => {
-    removeClinics(clinicGuid).then(res => {
+  handleDeleteItem = guid => {
+    removeClinics(guid).then(res => {
+      // отправляет запрос, получает ответ
       this.setState(({ clinicData }) => {
-        const idx = clinicData.findIndex(el => el.clinicGuid === clinicGuid);
+        const idx = clinicData.findIndex(el => el.guid === guid); // индекс удаляемой клиники
 
         const before = clinicData.slice(0, idx);
         const after = clinicData.slice(idx + 1);
         const newArray = [...before, ...after];
-        return { clinicData: newArray };
+        return { clinicData: newArray }; // возвращяем новый массив без одной клиники.
       });
     });
   };
 
   submitEditClinic = values => {
+    // value - новые данные о одной клинике
     const { clinicData } = this.state;
-
+    // clinicData вся инфа о клиниках ( массив клиник) с данными о них
     const clinicDataNew = clinicData.map(item => {
-      if (item.clinicGuid === values.clinicGuid) {
+      // item старая инфа  о клинике
+      if (item.guid === values.guid) {
+        // вопрос про id
+        // /item.guid id старого
+        // values - новая инфа
         return values;
       }
+      // item - старая инфа
       return item;
     });
 
     editClinic(values).then(res => {
+      // res??
       this.setState(state => ({
         ...state,
         clinicData: clinicDataNew,
@@ -94,8 +105,9 @@ export default class App extends Component {
     createClinics(values).then(res => {
       this.setState(state => ({
         clinicData: state.clinicData.concat({
+          // присваеваем клиник дате?
           ...values,
-          clinicGuid: res.data
+          guid: res.data
         }),
         isOpen: false
       }));
@@ -141,8 +153,8 @@ export default class App extends Component {
             <Typography variant="body2" color="textSecondary" component="p">
               Email:
               <a href={`mailto:${clinic.email && clinic.email}`}>
-                {clinic.email && clinic.email}
-              </a>
+  {clinic.email && clinic.email}
+</a>
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               Телефон:
