@@ -74,7 +74,8 @@ namespace ClinicManager.Domain.Services
         /// <inheritdoc />
         public async Task<Picture> GetPicture(Guid picGuid)
         {
-            return await _context.Pictures.FirstOrDefaultAsync(a=>a.PictureGuid == picGuid);
+            var picture = await _context.Pictures.FindAsync(picGuid);
+            return picture;
         }
     }
 }
