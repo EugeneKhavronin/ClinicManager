@@ -1,8 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using ClinicManager.Database.Models;
-using ClinicManager.Domain.Models;
 using ClinicManager.Domain.Models.Picture;
 
 namespace ClinicManager.Domain.Interfaces

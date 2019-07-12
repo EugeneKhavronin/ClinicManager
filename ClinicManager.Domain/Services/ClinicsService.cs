@@ -60,6 +60,11 @@ namespace ClinicManager.Domain.Services
         /// <inheritdoc/>
         public async Task<Guid> Create(ClinicModel clinicModel)
         {
+            if (clinicModel.PictureGuid == Guid.Empty)
+            {
+                clinicModel.PictureGuid = Guid.Parse("bf8487f3-6485-4f06-b771-7276fc8abaf0");
+            }
+
             Clinic clinic = new Clinic(
                 clinicModel.Title,
                 clinicModel.Address,

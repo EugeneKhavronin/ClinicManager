@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ClinicManager.Database.Models;
 using ClinicManager.Domain.Models.Clinic;
 
 namespace ClinicManager.Domain.Interfaces

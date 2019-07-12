@@ -9,8 +9,6 @@ namespace ClinicManager.Database.Resources
 
         public ResourcesPicture()
         {
-            
         }
     }
-    
 }

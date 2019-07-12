@@ -22,7 +22,7 @@ namespace ClinicManager.Database
             {
                 new Picture
                 {
-                    Guid = Guid.Parse("00000000-0000-0000-0000-000000000000"), Title = "DefaultPicture",
+                    Guid = Guid.Parse("bf8487f3-6485-4f06-b771-7276fc8abaf0"), Title = "Default Picture",
                     ClinicPicture = NewPicture.PictureArray
                 },
             });

@@ -6,7 +6,7 @@ namespace ClinicManager.Domain.Models.Clinic
     /// <summary>
     /// Класс модели клиники
     /// </summary>
-    public class ClinicModel // Отделить Create, Get и Update модельки в отдельные классы
+    public class ClinicModel
     {
         /// <summary>
         /// Название клиники

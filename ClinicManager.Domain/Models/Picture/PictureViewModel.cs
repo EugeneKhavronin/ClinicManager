@@ -1,7 +1,5 @@
 using System;
 using System.IO;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Internal;
 
 namespace ClinicManager.Domain.Models.Picture
 {
