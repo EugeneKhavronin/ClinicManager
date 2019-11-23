@@ -9,6 +9,8 @@ import ListClinic from './components/ListClinic';
 import Header from './header';
 import { EditForm } from './components/Form';
 import Modal from './components/Modal';
+import Menu from './components/Menu/index';
+import Footer from './footer/index';
 
 import './header/header.css';
 import './modal-window-more/modal-window-more.css';
@@ -126,12 +128,14 @@ export default class App extends Component {
           handleClose={this.handleClose}
           submitCreateClinic={this.submitCreateClinic}
         />
-        <ListClinic
+        <Menu />
+        <Footer />
+       {/* <ListClinic
           clinicData={clinicData}
           handleClickEditOpen={this.handleClickEdtOpen}
           onDeleted={this.handleDeleteItem}
           handleClickOpenMore={this.handleClickOpenMore}
-        />
+        />*/}
         <Modal isOpen={isOpenEdit} handleClose={this.handleEditClose}>
           <DialogTitle id="alert-dialog-title">
             Редактировать клинику

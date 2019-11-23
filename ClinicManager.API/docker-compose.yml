@@ -3,7 +3,7 @@ version: '3'
 volumes:
   postgres:
     driver: local
-    
+
 services:
   postgres:
     image: postgres:10
@@ -14,8 +14,8 @@ services:
     environment:
       POSTGRES_DB: ClinicManagerDb
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123456
-      
+      POSTGRES_PASSWORD: root
+
   clinic-manager-api:
       image: localhost:6000/clinic-manager-api
       ports:
