@@ -3,7 +3,12 @@ import React from 'react';
 import ListItemClinic from '../ListItemClinic';
 import './listClinic.css';
 
-const ListClinic = ({ clinicData, onDeleted, handleClickEditOpen, handleClickOpenMore }) => {
+const ListClinic = ({
+  clinicData,
+  onDeleted,
+  handleClickEditOpen,
+  handleClickOpenMore
+}) => {
   return (
     <div className="list-clinics">
       {clinicData.map(item => {
