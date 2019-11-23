@@ -10,6 +10,7 @@ namespace ClinicManager.Domain
         {
             services.AddScoped<IPictureService, PictureService>();
             services.AddScoped<IClinicsService, ClinicService>();
+            services.AddScoped<INeuralNetwork, NeuralNetworkService>();
 
             return services;
         }
