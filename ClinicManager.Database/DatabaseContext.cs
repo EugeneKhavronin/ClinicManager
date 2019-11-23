@@ -13,7 +13,6 @@ namespace ClinicManager.Database
 
         public DbSet<Clinic> Clinics { get; set; }
         public DbSet<Picture> Pictures { get; set; }
-        public DbSet<HeartModel> HeartModels { get; set; }
 
         ResourcesPicture NewPicture = new ResourcesPicture();
 

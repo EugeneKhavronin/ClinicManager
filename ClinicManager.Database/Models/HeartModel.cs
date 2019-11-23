@@ -4,7 +4,6 @@ namespace ClinicManager.Database.Models
 {
     public class HeartModel
     {
-        [Key]
         public float Age { get; set; }
         public float Sex { get; set; }
         public float Cp { get; set; }
@@ -19,8 +18,5 @@ namespace ClinicManager.Database.Models
         public float Ca { get; set; }
         public float Thal { get; set; }
         public bool Label { get; set; }
-        public bool Prediction { get; set; }
-        public float Probability { get; set; }
-        public float Score { get; set; }
     }
 }

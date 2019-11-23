@@ -23,33 +23,10 @@ namespace ClinicManager.API.Controllers
             _neuralNetwork = neuralNetwork;
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<HeartPrediction>> GetProbability()
+        [HttpPost]
+        public HeartPrediction GetProbability(HeartModel model)
         {
-            return await _neuralNetwork.GetProbability();
-        }
-
-        public static HeartPrediction GetResultPrediction()
-        {
-            try
-            {
-                HttpClient httpClient = new HttpClient()
-                {
-                    BaseAddress = new Uri("https://localhost:44316"),
-                    Timeout = TimeSpan.FromMinutes(10)
-                };
-
-                using (var response = httpClient.GetAsync("/GetPrediction").GetAwaiter().GetResult())
-                {
-                    var patient = response.ReadAs<HeartModel>().GetAwaiter().GetResult();
-                    return new HeartPrediction(patient.Prediction, patient.Probability);
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            return _neuralNetwork.GetPrediction(model);
         }
     }
 }

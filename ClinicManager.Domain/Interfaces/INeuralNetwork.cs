@@ -6,6 +6,6 @@ namespace ClinicManager.Domain.Interfaces
 {
     public interface INeuralNetwork
     {
-        Task<IEnumerable<HeartPrediction>> GetProbability();
+        HeartPrediction GetPrediction(HeartModel heartModel);
     }
 }

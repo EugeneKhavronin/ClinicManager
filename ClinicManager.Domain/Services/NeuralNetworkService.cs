@@ -3,7 +3,11 @@ using System.Threading.Tasks;
 using ClinicManager.Database;
 using ClinicManager.Database.Models;
 using ClinicManager.Domain.Interfaces;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using RestSharp;
 
 namespace ClinicManager.Domain.Services
 {
@@ -16,20 +20,18 @@ namespace ClinicManager.Domain.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<HeartPrediction>> GetProbability()
+        public HeartPrediction GetPrediction(HeartModel heartModel)
         {
-            var result = await _context.HeartModels.ToListAsync();
-            List<HeartPrediction> results = new List<HeartPrediction>();
-            foreach (var heart in result)
-            {
-                var heartModel = new HeartPrediction
-                {
-                    Prediction = heart.Prediction,
-                    Probability = heart.Probability,
-                };
-                results.Add(heartModel);
-            }
-            return results;
+            var client = new RestClient($"https://localhost:44316/GetPrediction/");
+            var request = new RestRequest(Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            request.AddBody(heartModel);
+
+            var response = client.Execute(request);
+
+            var obj = JsonConvert.DeserializeObject<HeartPrediction>(response.Content);
+            
+            return obj;
         }
     }
 }
